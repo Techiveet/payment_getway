@@ -1,0 +1,31 @@
+# Work in progress
+# This is a Docker Compose file for the payment gateway service.
+# there will be a production-ready version of this docker-compose file.
+
+services:
+  payment-api:
+    image: ./api
+    ports:
+      - "8043:8043" # for development purposes, similar to how port 443 is used in production for HTTPS.
+    networks:
+      - payment-network-internal
+  payment-db:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: payment_user
+      POSTGRES_PASSWORD: payment_password
+      POSTGRES_DB: payment_db
+    volumes:
+      - payment-db-data:/var/lib/postgresql/data
+    networks:
+      - payment-network-internal
+      - payment-network-external
+
+volumes:
+  payment-db-data:
+
+networks:
+  payment-network-internal:
+    driver: bridge
+  payment-network-external:
+    driver: bridge

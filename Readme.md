@@ -175,11 +175,13 @@ same package)
 style
 - structure of the commit message format
 
-> <type>(<scope>): <subject>
-> <br>
-> [optional! body]
-> <br>
-> [optional! footer]
+```
+<type>(<scope>): <subject>
+<br>
+[optional! body]
+<br>
+[optional! footer]
+```
 
 - common types of commits
 

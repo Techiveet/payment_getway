@@ -196,3 +196,18 @@ style
 
 - **never include sensitive information in commit messages or code changes**
 - explicitly mention security or compliance changes
+
+12. **Using Docker Images**
+
+When using images for production and deployment, consider the type of image that
+are being used. Use the appropriate image type for the environment and consider
+multi-stage build to reduce the size of the final image.
+
+This includes not using the base build if not necessary, use slimmer images if
+possible. Specific images don't have features for debugging and testing making them
+suitable for production environments.
+
+## NOTE: WORK IN PROGRESS
+
+This document will be broken into sections for each topic and will be placed in
+the `docs` directory.
